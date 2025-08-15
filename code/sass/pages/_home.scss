@@ -1,0 +1,1302 @@
+.main {
+  padding-top: 110px;
+
+  .hero {
+    background-color: map-get($colors, neutrals-seven);
+    padding: 64px 32px;
+
+    @include tablet {
+      padding: 136px 80px;
+    }
+
+    @include desktop {
+      padding: 8.5rem 10rem;
+    }
+
+    &__head {
+      @include flex-center;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 3rem;
+
+      .hero__subtitle {
+        font-family: "Poppins";
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: map-get($colors, neutrals-four);
+      }
+
+      .hero__wrapper {
+        @include container(600px);
+
+        .hero__title {
+          font-family: "SF Pro Display";
+          font-weight: 700;
+          font-size: 64px;
+          line-height: 64px;
+          letter-spacing: -2%;
+        }
+      }
+    }
+
+    .trials {
+      @include tablet {
+        @include flex-center;
+        width: 100%;
+      }
+
+      &__wrapper {
+        @include tablet {
+          max-width: 864px;
+        }
+
+        @include desktop {
+          max-width: 1120px;
+        }
+
+        .trials__list--mobile {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          gap: 2rem;
+
+          @include phone {
+            .features {
+              display: none;
+            }
+          }
+
+          @include tablet {
+            flex-direction: row;
+          }
+
+          .trials__item {
+            background-color: map-get($colors, white);
+            padding: 3rem 1rem 4.125rem 2rem;
+            border-radius: 1.5625rem;
+
+            .trials__title {
+              margin-bottom: 0.5rem;
+              font-family: "Poppins";
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 24px;
+
+              &--green {
+                color: map-get($colors, primary-4);
+              }
+
+              &--orange {
+                color: map-get($colors, primary-1);
+              }
+
+              &--pink {
+                color: map-get($colors, primary-3);
+              }
+            }
+
+            .trials__subtitle {
+              margin: 0;
+              font-family: "Poppins";
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 24px;
+              color: map-get($colors, neutrals-four);
+            }
+
+            .free__wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 0px;
+              margin-bottom: 2rem;
+
+              .free__value {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                width: 35px;
+                height: 60px;
+
+                .free__icon {
+                  font-size: 20px;
+                  font-weight: 900;
+                }
+
+                .free__price {
+                  margin: 0;
+                  position: relative;
+                  top: -10px;
+                  font-family: "SF Pro Display";
+                  font-weight: 700;
+                  font-size: 48px;
+                }
+              }
+
+              .free__date {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+              }
+            }
+
+            .availability__list {
+              .availability__wrapper {
+                display: flex;
+                flex-direction: column;
+
+                @include tablet {
+                  display: none;
+                }
+              }
+
+              .availability__checkbox--free {
+                display: none;
+
+                &:checked ~ .availability__item--one {
+                  display: flex;
+                }
+
+                &:checked
+                  ~ .availability__button--free
+                  .availability__img--one {
+                  transform: rotate(180deg);
+                }
+              }
+
+              .availability__checkbox--premium {
+                display: none;
+
+                &:checked ~ .availability__item--two {
+                  display: flex;
+                }
+
+                &:checked
+                  ~ .availability__button--premium
+                  .availability__img--two {
+                  transform: rotate(180deg);
+                }
+              }
+
+              .availability__checkbox--unlimited {
+                display: none;
+
+                &:checked ~ .availability__item--three {
+                  display: flex;
+                }
+                &:checked
+                  ~ .availability__button--unlimited
+                  .availability__img--three {
+                  transform: rotate(180deg);
+                }
+              }
+
+              .availability__button--free,
+              .availability__button--premium,
+              .availability__button--unlimited {
+                display: flex;
+                margin-bottom: 26px;
+                align-items: center;
+                font-family: "Poppins";
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 20px;
+                color: map-get($colors, primary);
+
+                .availability__img {
+                  @include transition;
+                }
+              }
+            }
+
+            .availability__item {
+              display: none;
+              justify-content: space-between;
+              height: 65px;
+              align-items: center;
+              margin: 0;
+              color: map-get($colors, primary);
+              font-family: "Poppins";
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 24px;
+            }
+
+            .free__button {
+              @include flex-center;
+              width: 8.25rem;
+              height: 3rem;
+              background-color: map-get($colors, primary-1);
+              font-family: "SF Pro Display";
+              color: map-get($colors, neutrals-eight);
+              font-weight: 700;
+              border-radius: 30px;
+
+              &--white {
+                @include flex-center;
+                background-color: transparent;
+                border-radius: 30px;
+                color: map-get($colors, primary);
+                width: 8.25rem;
+                height: 3rem;
+                border: 2px solid map-get($colors, neutrals-six);
+
+                font-family: "SF Pro Display";
+                font-weight: 700;
+              }
+
+              &--desktop {
+                display: none;
+              }
+
+              @include tablet {
+                &--phone {
+                  display: none;
+                }
+
+                &--desktop {
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
+
+        .trials__list--tablet {
+          display: grid;
+          grid-template-columns: repeat(4, 216px);
+          grid-template-rows: 17.75rem repeat(5, 64px) 9.75rem;
+
+          .trials__title--top {
+            display: grid;
+            align-items: end;
+
+            .trials__title {
+              margin-bottom: 1rem;
+              font-family: "Poppins";
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 12px;
+              text-transform: uppercase;
+              color: map-get($colors, neutrals-four);
+            }
+          }
+
+          .trial__head {
+            display: grid;
+            justify-content: center;
+            place-items: center;
+            align-content: space-evenly;
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+              border-radius: 24px 24px 0 0;
+            }
+
+            .trials__title {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              padding: 38px 0 0 0;
+
+              .trials__head--top {
+                font-family: "Poppins";
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center;
+                margin: 0;
+              }
+
+              .trials__head--purple {
+                color: map-get($colors, primary-2);
+              }
+
+              .trials__head--orange {
+                color: map-get($colors, primary-1);
+              }
+
+              .trials__head--pink {
+                color: map-get($colors, primary-3);
+              }
+
+              .trials__text {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                text-align: center;
+                color: map-get($colors, neutrals-four);
+              }
+            }
+
+            .trials__prices {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              .trials__bottom {
+                display: flex;
+                justify-content: center;
+                height: 60px;
+
+                .trials__price {
+                  display: grid;
+                  align-items: start;
+                  margin-bottom: 0;
+                  font-family: "SF Pro Display";
+                  font-weight: 700;
+                  font-size: 48px;
+                  line-height: 56px;
+                  letter-spacing: -2%;
+                  text-align: center;
+                }
+              }
+
+              .trials__subtitle {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                color: map-get($colors, neutrals-four);
+              }
+            }
+          }
+
+          .table__title {
+            @include flex-between;
+            border-bottom: 3px solid map-get($colors, neutrals-six);
+
+            .tablet__center {
+              font-family: "Poppins";
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 24px;
+              color: map-get($colors, primary);
+              margin: 0;
+            }
+          }
+
+          .trials__image {
+            @include flex-center;
+            border-bottom: 3px solid map-get($colors, neutrals-six);
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+            }
+            .trials__img--chek {
+              display: grid;
+              place-items: center;
+            }
+          }
+
+          .footer__buttons {
+            @include flex-center;
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+              border-radius: 0 0 24px 24px;
+            }
+
+            .footer__buton--orange {
+              width: 148px;
+              height: 48px;
+              border-radius: 90px;
+              background-color: map-get($colors, primary-1);
+
+              font-family: "SF Pro Display";
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 16px;
+              text-align: center;
+              color: map-get($colors, neutrals-eight);
+            }
+
+            .footer__buton--white {
+              width: 148px;
+              height: 48px;
+              border-radius: 90px;
+              background-color: transparent;
+              border: 2px solid map-get($colors, neutrals-six);
+
+              font-family: "SF Pro Display";
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 16px;
+              text-align: center;
+              color: map-get($colors, primary);
+            }
+          }
+        }
+
+        .trials__list--view {
+          display: grid;
+          grid-template-columns: 352px repeat(3, 256px);
+          grid-template-rows: 17.75rem repeat(10, 64px) 9.75rem;
+
+          .trials__title--top {
+            display: grid;
+            align-items: end;
+
+            .trials__title {
+              margin-bottom: 1rem;
+              font-family: "Poppins";
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 12px;
+              text-transform: uppercase;
+              color: map-get($colors, neutrals-four);
+            }
+          }
+
+          .trial__head {
+            display: grid;
+            justify-content: center;
+            place-items: center;
+            align-content: space-evenly;
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+              border-radius: 24px 24px 0 0;
+            }
+
+            .trials__title {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              padding: 38px 0 0 0;
+
+              .trials__head--top {
+                font-family: "Poppins";
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center;
+                margin: 0;
+              }
+
+              .trials__head--purple {
+                color: map-get($colors, primary-2);
+              }
+
+              .trials__head--orange {
+                color: map-get($colors, primary-1);
+              }
+
+              .trials__head--pink {
+                color: map-get($colors, primary-3);
+              }
+
+              .trials__text {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                text-align: center;
+                color: map-get($colors, neutrals-four);
+              }
+            }
+
+            .trials__prices {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              .trials__bottom {
+                display: flex;
+                justify-content: center;
+                height: 60px;
+
+                .trials__price {
+                  display: grid;
+                  align-items: start;
+                  margin-bottom: 0;
+                  font-family: "SF Pro Display";
+                  font-weight: 700;
+                  font-size: 48px;
+                  line-height: 56px;
+                  letter-spacing: -2%;
+                  text-align: center;
+                }
+              }
+
+              .trials__subtitle {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                color: map-get($colors, neutrals-four);
+              }
+            }
+          }
+
+          .table__title {
+            @include flex-between;
+            border-bottom: 3px solid map-get($colors, neutrals-six);
+
+            .tablet__center {
+              font-family: "Poppins";
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 24px;
+              color: map-get($colors, primary);
+              margin: 0;
+            }
+          }
+
+          .trials__image {
+            @include flex-center;
+            border-bottom: 3px solid map-get($colors, neutrals-six);
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+            }
+            .trials__img--chek {
+              display: grid;
+              place-items: center;
+            }
+          }
+
+          .footer__buttons {
+            @include flex-center;
+
+            &--white {
+              background-color: map-get($colors, neutrals-eight);
+              border-radius: 0 0 24px 24px;
+            }
+
+            .footer__buton--orange {
+              width: 148px;
+              height: 48px;
+              border-radius: 90px;
+              background-color: map-get($colors, primary-1);
+
+              font-family: "SF Pro Display";
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 16px;
+              text-align: center;
+              color: map-get($colors, neutrals-eight);
+            }
+
+            .footer__buton--white {
+              width: 148px;
+              height: 48px;
+              border-radius: 90px;
+              background-color: transparent;
+              border: 2px solid map-get($colors, neutrals-six);
+
+              font-family: "SF Pro Display";
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 16px;
+              text-align: center;
+              color: map-get($colors, primary);
+            }
+          }
+        }
+
+        @include phone {
+          .trials__list--mobile {
+            display: flex;
+          }
+
+          .trials__list--tablet {
+            display: none;
+          }
+
+          .trials__list--desktop {
+            display: none;
+          }
+        }
+
+        @include tablet {
+          .trials__list--mobile {
+            display: none;
+          }
+
+          .trials__list--tablet {
+            display: grid;
+          }
+
+          .trials__list--desktop {
+            display: none;
+          }
+        }
+
+        @include desktop {
+          .trials__list--mobile {
+            display: none;
+          }
+
+          .trials__list--tablet {
+            display: none;
+          }
+
+          .trials__list--desktop {
+            display: grid;
+          }
+        }
+      }
+    }
+  }
+
+  .activities {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    border-bottom: 2px solid map-get($colors, neutrals-six);
+
+    @include tablet {
+      width: 100%;
+      @include flex-center;
+    }
+
+    @include desktop {
+      padding: 136px 160px;
+    }
+
+    &__wrapper {
+      padding: 4rem 2rem;
+
+      @include tablet {
+        padding: 112px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+      }
+
+      @include desktop {
+        width: 100%;
+        padding: unset;
+        max-width: 70rem;
+      }
+
+      .activities__head {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 3rem;
+
+        @include tablet {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: start;
+        }
+
+        .activities__navigation {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+        }
+
+        .activities__texts {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+
+          @include tablet {
+            width: 36rem;
+          }
+
+          .activities__title {
+            margin: 0;
+            font-family: "SF Pro Display";
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 56px;
+            letter-spacing: -2%;
+            color: map-get($colors, primary);
+          }
+
+          .activities__description {
+            font-family: "Poppins";
+            font-weight: 400;
+            line-height: 24px;
+            color: map-get($colors, neutrals-three);
+            margin: 0;
+          }
+        }
+      }
+
+      .activities__list {
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        @include tablet {
+          gap: 2rem;
+        }
+
+        &::-webkit-scrollbar {
+          height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: transparent;
+        }
+
+        .activities__item {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          flex: 0 0 100%;
+          height: 302px;
+          scroll-snap-align: start;
+          gap: 1.5rem;
+
+          @include tablet {
+            flex: 0 0 16rem;
+          }
+
+          .activities__images {
+            width: 100%;
+            height: 222px;
+            @include flex-center;
+            border-radius: 0.5rem;
+            background-color: map-get($colors, neutrals-six);
+
+            &--primary {
+              background-color: map-get($colors, primary);
+            }
+          }
+
+          .activities__name--wrapper {
+            height: 3.5rem;
+            margin: 0;
+            text-align: center;
+
+            .activities__name {
+              margin: 0;
+              font-family: "Poppins";
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            .activities__subtitle {
+              margin: 0;
+              font-family: "Poppins";
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 24px;
+              color: map-get($colors, neutrals-four);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .faq {
+    padding: 7rem 2rem;
+
+    @include tablet {
+      padding: 112px 80px;
+      @include flex-center;
+      flex-direction: column;
+    }
+
+    @include desktop {
+      padding: 136px 160px;
+    }
+
+    .faq__container {
+      @include tablet {
+        max-width: 54rem;
+      }
+
+      @include desktop {
+        width: 100%;
+        max-width: 70rem;
+      }
+
+      .faq__head {
+        text-align: center;
+
+        .faq__subtitle {
+          font-family: "Poppins";
+          font-weight: 700;
+          font-size: 12px;
+          text-transform: uppercase;
+          color: map-get($colors, neutrals-four);
+        }
+
+        .faq__title {
+          font-family: "SF Pro Display";
+          font-weight: 700;
+          font-size: 48px;
+          line-height: 56px;
+          color: map-get($colors, primary);
+        }
+
+        .faq__desc {
+          font-family: "Poppins";
+          font-weight: 400;
+          line-height: 24px;
+          color: map-get($colors, neutrals-three);
+
+          @include desktop {
+            padding-inline: 24%;
+          }
+
+          a {
+            font-weight: 600;
+            font-size: 16px;
+            color: map-get($colors, primary-1);
+          }
+        }
+      }
+
+      .faq__filter {
+        &--wrapper {
+          border: 2px solid map-get($colors, neutrals-six);
+          padding: 0.75rem;
+          border-radius: 0.75rem;
+          margin-block: 3rem;
+
+          @include tablet {
+            display: none;
+          }
+
+          .faq__filter---mobile {
+            &[open] summary::before {
+              transform: rotate(180deg);
+            }
+
+            summary {
+              position: relative;
+              font-family: "Poppins";
+              font-weight: 500;
+              font-size: 14px;
+              color: map-get($colors, primary);
+
+              &::marker {
+                content: "";
+              }
+
+              &::before {
+                height: 1.5rem;
+                content: url("../../../image/section2/bottom-icon.svg");
+                position: absolute;
+                right: 0;
+                top: 0;
+                @include transition;
+              }
+            }
+
+            .faq__filter--list {
+              @include flex-between;
+              padding: 15px 0;
+              margin: 0;
+              font-family: "SF Pro Display";
+              font-weight: 700;
+              font-size: 14px;
+              color: map-get($colors, neutrals-four);
+            }
+          }
+        }
+
+        &--desktop {
+          display: none;
+
+          @include tablet {
+            display: flex;
+            @include flex-center;
+
+            .faq__filter--list {
+              @include flex-center;
+              gap: 12px;
+              margin: 0;
+
+              .faq__filter--item {
+                padding: 6px 12px;
+                border-radius: 1.875rem;
+                margin: 0;
+                font-family: "SF Pro Display";
+                font-weight: 700;
+                font-size: 14px;
+              }
+
+              .faq__filter--checked {
+                background-color: map-get($colors, neutrals-three);
+                color: map-get($colors, neutrals-eight);
+              }
+            }
+          }
+        }
+
+        .faq__list {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+
+          @include tablet {
+            margin-top: 2rem;
+          }
+
+          .faq__item {
+            border-top: 3px solid map-get($colors, neutrals-six);
+
+            &[open] summary::before {
+              transform: rotate(180deg);
+            }
+
+            summary {
+              position: relative;
+              font-family: "Poppins";
+              font-weight: 500;
+              font-size: 16px;
+              color: map-get($colors, primary);
+              padding: 1.5rem 0;
+
+              &::marker {
+                content: "";
+              }
+
+              &::before {
+                height: 1.5rem;
+                content: url("../../../image/section2/bottom-icon.svg");
+                position: absolute;
+                right: 0;
+                @include transition;
+              }
+
+              .summary--one {
+                display: flex;
+
+                @include tablet {
+                  display: none;
+                }
+              }
+
+              .summary--two {
+                display: none;
+
+                @include tablet {
+                  display: flex;
+                }
+              }
+            }
+
+            .faq__content {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              padding-top: 20px;
+
+              @include tablet {
+                flex-direction: row;
+                gap: 1.25rem;
+              }
+
+              @include desktop {
+                justify-content: space-between;
+                width: 100%;
+              }
+
+              .faq__image {
+                .faq__img {
+                  display: flex;
+
+                  @include tablet {
+                    display: none;
+                  }
+
+                  &--tablet {
+                    display: none;
+
+                    @include tablet {
+                      display: flex;
+                    }
+                  }
+                }
+              }
+
+              .faq__text {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+
+                font-family: "Poppins";
+                font-size: 16px;
+
+                @include tablet {
+                  width: 50%;
+                  justify-content: center;
+                }
+
+                strong {
+                  font-weight: 600;
+                  color: map-get($colors, primary);
+                }
+
+                p {
+                  color: map-get($colors, neutrals-four);
+                  font-weight: 400;
+                  line-height: 24px;
+                  margin: 0;
+                }
+
+                button {
+                  width: 120px;
+                  height: 40px;
+                  background-color: transparent;
+                  border: 3px solid map-get($colors, neutrals-six);
+                  border-radius: 30px;
+
+                  font-family: "SF Pro Display";
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 16px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .testimonials {
+    padding: 4rem 2rem;
+    background-color: map-get($colors, neutrals-seven);
+
+    @include tablet {
+      padding: 136px 0 136px 80px;
+      @include flex-center;
+      flex-direction: column;
+    }
+
+    @include desktop {
+      padding: 136px 160px;
+    }
+
+    &__wrapper {
+      @include tablet {
+        max-width: 944px;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+      }
+
+      @include desktop {
+        max-width: 70rem;
+      }
+
+      .testimonials__head {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+          flex-direction: row;
+          gap: 8rem;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .testimonials__text {
+          @include tablet {
+            width: 50%;
+          }
+
+          @include desktop {
+            width: 28rem;
+          }
+
+          .testimonials__img {
+            margin-bottom: 2rem;
+
+            @include desktop {
+              margin-bottom: 3rem;
+            }
+          }
+
+          .testimonials__title {
+            .testimonials__subtitle {
+              font-family: "Poppins";
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 32px;
+              letter-spacing: -1%;
+              color: map-get($colors, primary);
+
+              @include desktop {
+                margin-bottom: 1.5rem;
+              }
+            }
+
+            .testimonials__author {
+              display: flex;
+              flex-direction: column;
+              font-family: "Poppins";
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 24px;
+
+              @include tablet {
+                flex-direction: row;
+                gap: 1.625rem;
+              }
+
+              .testimonials__name {
+                display: flex;
+                gap: 0.875rem;
+                height: max-content;
+
+                @include tablet {
+                  align-items: center;
+                }
+              }
+
+              .testimonials__coprporation {
+                display: none;
+
+                @include tablet {
+                  display: flex;
+                  align-items: center;
+                  font-family: "Poppins";
+                  font-weight: 400;
+                  font-size: 14px;
+                  line-height: 22px;
+                  letter-spacing: -2%;
+
+                  color: map-get($colors, neutrals-four);
+
+                  border-left: 3px solid map-get($colors, neutrals-six);
+                  padding-left: 1.25rem;
+                }
+              }
+            }
+          }
+
+          .testimonials__button {
+            width: 152px;
+            height: 48px;
+            border-radius: 90px;
+            border: 3px solid map-get($colors, neutrals-six);
+
+            font-family: "SF Pro Display";
+            font-weight: 700;
+            line-height: 16px;
+            text-align: center;
+
+            margin-bottom: 3rem;
+
+            @include tablet {
+              margin-top: 3rem;
+            }
+          }
+        }
+
+        .testimonials__image {
+          &--mobile {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &--tablet {
+            display: none;
+
+            @include tablet {
+              display: flex;
+            }
+
+            @include desktop {
+              height: 37.5rem;
+              border-radius: 0 16px 16px 0;
+            }
+          }
+        }
+      }
+
+      .testimonials__team {
+        .testimonials__list {
+          display: flex;
+          overflow-x: scroll;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+
+          &::-webkit-scrollbar {
+            height: 0;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: transparent;
+          }
+
+          @include tablet {
+            gap: 2rem;
+          }
+
+          .testimonials__item {
+            display: flex;
+            align-items: center;
+            padding-bottom: 0.9375rem;
+
+            flex: 0 0 80%;
+            scroll-snap-align: start;
+
+            gap: 1rem;
+
+            &--checked {
+              border-bottom: 3px solid map-get($colors, primary);
+            }
+
+            @include tablet {
+              & {
+                flex: 0 0 16rem;
+              }
+            }
+
+            @include desktop {
+              & {
+              padding-bottom: 1.75rem;
+              }
+            }
+
+            .testimonials__name--wrapper {
+              .testimonials__name {
+                margin: 0;
+                font-family: "Poppins";
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 24px;
+                color: map-get($colors, primary);
+              }
+
+              .testimonials__subtitle {
+                margin: 0;
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 14px;
+                color: map-get($colors, neutrals-four);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

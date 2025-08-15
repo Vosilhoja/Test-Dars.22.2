@@ -1,0 +1,233 @@
+.header {
+  position: fixed;
+  width: 100%;
+  font-family: "SF Pro Display";
+  background-color: map-get($colors , white);
+  z-index: 10;
+
+  .header__container {
+    padding: 48px 32px;
+    @include flex-between;
+    flex-shrink: 1;
+    gap: 1.875rem;
+
+    @include tablet {
+      padding: 40px 60px;
+      @include flex-between;
+    }
+
+    @include desktop {
+      padding: 40px 100px;
+      @include flex-between;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 2px;
+        height: 50%;
+        background-color: map-get($colors, neutrals-six);
+      }
+
+      .burger__menu,
+      .burger {
+        display: none !important;
+      }
+    }
+
+    .header__logo {
+      position: relative;
+      z-index: 10;
+    }
+
+    .burger {
+      position: relative;
+      z-index: 10;
+      order: 1;
+    }
+
+    .burger__menu {
+      display: none;
+
+      &:checked ~ .burger span:nth-child(1) {
+        transform: rotate(45deg) translate(2px, 2px);
+      }
+      &:checked ~ .burger span:nth-child(2) {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+
+      &:checked ~ .header__nav {
+        @include flex-center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        backdrop-filter: blur(20px);
+        z-index: 9;
+        flex-direction: column;
+      }
+
+      @include desktop {
+        &:checked ~ .header__nav {
+          position: unset;
+          top: unset;
+          left: unset;
+          width: unset;
+          height: unset;
+          backdrop-filter: unset;
+          z-index: unset;
+          flex-direction: unset;
+        }
+      }
+    }
+
+    .burger {
+      @include flex-between;
+      flex-direction: column;
+      width: 25px;
+      height: 10px;
+      position: relative;
+      cursor: pointer;
+
+      .line {
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        background-color: map-get($colors, neutrals-four);
+        @include transition;
+      }
+    }
+
+    .header__nav {
+      display: none;
+
+      @include tablet {
+        .nav-menu {
+          .nav-menu__link {
+            display: flex;
+            gap: 10px;
+
+            img {
+              width: 20px;
+            }
+          }
+
+          .header__menu-button {
+            display: none;
+          }
+        }
+      }
+
+      @include desktop {
+        @include flex-center;
+      }
+
+      .nav-menu {
+        .nav-menu {
+          display: none !important;
+        }
+
+        @include desktop {
+          @include flex-center;
+          width: max-content;
+          gap: 30px;
+          margin-bottom: 0;
+          padding-left: 0;
+
+          .header__menu-button {
+            display: none;
+          }
+        }
+
+        .header__menu-button {
+          font-weight: 700;
+          font-family: inherit;
+          font-size: 0.875rem;
+          color: map-get($colors, neutrals-four);
+          @include reset-button;
+          width: 111px;
+          height: 40px;
+          border: 2px solid map-get($colors, neutrals-six);
+          border-radius: 30px;
+          position: relative;
+          right: 15%;
+        }
+
+        .nav-menu__item {
+          padding-bottom: 1.25rem;
+          display: flex;
+
+          @include desktop {
+            @include flex-center;
+            padding-bottom: 0;
+            margin-bottom: 0;
+          }
+
+          .nav-menu__link {
+            display: flex;
+            gap: 10px;
+            font-weight: 700;
+            font-family: inherit;
+            font-size: 0.875rem;
+            color: map-get($colors, neutrals-four);
+
+            img {
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .header__social {
+      display: none;
+
+      @include tablet {
+        display: none;
+      }
+
+      @include desktop {
+        display: flex;
+        gap: 0.75rem;
+      }
+    }
+
+    .header__menu-buttons {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        transform: translateX(90%);
+        position: relative;
+        z-index: 10;
+      }
+
+      @include desktop {
+        display: flex;
+        transform: translateX(0);
+      }
+
+      .header__menu-button {
+        font-weight: 700;
+        font-family: inherit;
+        font-size: 0.875rem;
+        color: map-get($colors, neutrals-four);
+        @include reset-button;
+        width: 111px;
+        height: 40px;
+        border: 2px solid map-get($colors, neutrals-six);
+        border-radius: 30px;
+
+        @include tablet {
+          transform: translateX(60%);
+        }
+
+        @include desktop {
+          transform: unset;
+        }
+      }
+    }
+  }
+}

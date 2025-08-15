@@ -1,0 +1,304 @@
+.footer {
+  &__nav--mobile {
+    padding: 64px 32px 0 32px;
+    text-align: start;
+    flex-direction: column;
+
+    .footer__logo {
+      margin-bottom: 2rem;
+      width: 10.4375rem;
+      height: 2rem;
+    }
+
+    .footer__menu--hidden {
+      display: none;
+    }
+
+    .footer__nav {
+      display: none;
+
+      &:checked ~ .footer__menu--hidden {
+        @include flex-center;
+        width: 80%;
+        height: 200px;
+        position: absolute;
+        background-color: map-get($colors, white);
+        border: 2px solid map-get($colors, neutrals-six);
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: map-get($colors, neutrals-four);
+        text-align: center;
+
+        .menu__list {
+          padding: 0;
+          margin-bottom: 0;
+
+          .menu__item {
+            margin-bottom: 16px;
+          }
+        }
+      }
+
+      &:checked ~ .footer__menu--mobile .footer__img--hidden {
+        transform: rotate(180deg);
+      }
+    }
+
+    .footer__menu--mobile {
+      @include flex-between;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid map-get($colors, neutrals-six);
+      margin-bottom: 2rem;
+
+      .footer__text {
+        margin-bottom: 0;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+      }
+
+      .footer__img--hidden {
+        transition: all 0.5s;
+        width: 20px;
+      }
+    }
+
+    .footer__line {
+    }
+
+    .contact {
+      padding-bottom: 2rem;
+      border-bottom: 0.0625rem solid map-get($colors, neutrals-six);
+      margin-bottom: 2rem;
+      &__list {
+        padding: 0;
+        .contact__title {
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          color: map-get($colors, primary);
+          font-weight: 700;
+          margin-bottom: 2.5625rem;
+        }
+        .contact__item {
+          margin-bottom: 0.5rem;
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: map-get($colors, primary);
+        }
+      }
+    }
+
+    .newsletter {
+      &__list {
+        padding: 0;
+        .newsletter__title {
+          font-weight: 700;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          margin-bottom: 2.5rem;
+          color: map-get($colors, primary);
+        }
+        .contact__item {
+          margin-bottom: 1.5rem;
+          font-weight: 400;
+          font-size: 0.875rem;
+          line-height: 1.5rem;
+          color: map-get($colors, primary);
+        }
+
+        .newsletter__input {
+          position: relative;
+          width: max-content;
+          height: max-content;
+          z-index: 0;
+
+          input {
+            width: 100%;
+            height: 1.25rem;
+            background-color: transparent;
+            border: 2px solid map-get($colors, neutrals-six);
+            border-radius: 1.875rem;
+            padding: 1rem;
+            position: relative;
+
+            &::placeholder {
+              color: map-get($colors, neutrals-four);
+            }
+          }
+          .newsletter__submit {
+            position: absolute;
+            left: 95%;
+            top: 17%;
+            border-radius: 50%;
+            border: 0;
+            background-color: map-get($colors, primary-1);
+            @include flex-center;
+            width: 2rem;
+            height: 2rem;
+            z-index: -1;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid map-get($colors, neutrals-six);
+
+      &__text {
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: map-get($colors, neutrals-four);
+      }
+
+      &__social {
+        display: flex;
+        gap: 1.5rem;
+        padding-bottom: 3rem;
+        margin-top: 1.5rem;
+        .social__icon {
+        }
+      }
+    }
+  }
+
+  @include phone {
+    .footer__nav--desktop {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    .footer__nav--mobile {
+      display: none;
+    }
+  }
+
+  &__nav--desktop {
+    padding: 80px 40px 0 40px;
+    text-align: start;
+
+    .footer__wrapper {
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      grid-template-columns: 80px 80px 192px 192px;
+      column-gap: 100px;
+      width: 100%;
+
+      .footer__logo {
+        margin-bottom: 2rem;
+        width: 10.4375rem;
+        height: 2rem;
+      }
+
+      .footer__menu--hidden {
+        .menu__list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          color: map-get($colors , neutrals-four);
+          font-weight: 700;
+        }
+      }
+
+      .contact {
+        padding-bottom: 2rem;
+        border-bottom: 0.0625rem solid map-get($colors, neutrals-six);
+        margin-bottom: 2rem;
+        &__list {
+          padding: 0;
+          .contact__title {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: map-get($colors, primary);
+            font-weight: 700;
+            margin-bottom: 2.5625rem;
+          }
+          .contact__item {
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: map-get($colors, primary);
+          }
+        }
+      }
+
+      .newsletter {
+        &__list {
+          padding: 0;
+          .newsletter__title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            color: map-get($colors, primary);
+          }
+          .contact__item {
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            color: map-get($colors, primary);
+          }
+
+          .newsletter__input {
+            position: relative;
+            width: max-content;
+            height: max-content;
+            z-index: 0;
+
+            input {
+              width: 200px;
+              height: 1.25rem;
+              background-color: transparent;
+              border: 2px solid map-get($colors, neutrals-six);
+              border-radius: 1.875rem;
+              padding: 1rem;
+              position: relative;
+
+              &::placeholder {
+                color: map-get($colors, neutrals-four);
+              }
+            }
+            .newsletter__submit {
+              position: absolute;
+              left: 80%;
+              top: 17%;
+              border-radius: 50%;
+              border: 0;
+              background-color: map-get($colors, primary-1);
+              @include flex-center;
+              width: 2rem;
+              height: 2rem;
+              z-index: -1;
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid map-get($colors, neutrals-six);
+      @include flex-between;
+
+      &__text {
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: map-get($colors, neutrals-four);
+      }
+
+      &__social {
+        display: flex;
+        gap: 1.5rem;
+        padding-bottom: 3rem;
+        margin-top: 1.5rem;
+        .social__icon {
+        }
+      }
+    }
+  }
+}
