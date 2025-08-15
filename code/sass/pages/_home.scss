@@ -887,7 +887,7 @@
 
               &::before {
                 height: 1.5rem;
-                content: url("../../../image/section2/bottom-icon.svg");
+                content: url(".././image/section2/bottom-icon.svg");
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -967,7 +967,7 @@
 
               &::before {
                 height: 1.5rem;
-                content: url("../../../image/section2/bottom-icon.svg");
+                content: url(".././image/section2/bottom-icon.svg");
                 position: absolute;
                 right: 0;
                 @include transition;
@@ -1272,7 +1272,7 @@
 
             @include desktop {
               & {
-              padding-bottom: 1.75rem;
+                padding-bottom: 1.75rem;
               }
             }
 
